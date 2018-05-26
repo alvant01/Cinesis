@@ -12,13 +12,11 @@ public class Controller {
 	
 	
 	public void run(List<String> lista ) {
-		
-		
-		
+			
 		 this.controlador = this.controladorParser.parse(lista);
-		
-		
-		
+		 
+		 
+		 this.controlador.insert(lista);
 		
 	}
 

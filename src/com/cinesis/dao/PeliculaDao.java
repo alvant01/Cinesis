@@ -21,8 +21,6 @@ public class PeliculaDao extends AbstractSession{
     		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
     		   boolean b = preparedStmt.execute();
     		   System.out.println(b);
-    		//   preparedStmt.close();
-    		//   conn.close();
     		  }catch(ClassNotFoundException | SQLException e) {
     			  System.out.println("nop" + e);
     			  
@@ -40,8 +38,6 @@ public class PeliculaDao extends AbstractSession{
 	  		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
 	  		   boolean b = preparedStmt.execute();
 	  		   System.out.println(b);
-	  		 //  stmt.close();
-	  		//   conn.close();
 	  		  }catch(ClassNotFoundException | SQLException e) {
 	  			  System.out.println("nop" + e);
 	  			  
@@ -61,10 +57,7 @@ public class PeliculaDao extends AbstractSession{
   		   
   		   
   		   java.sql.PreparedStatement preparedStmt = conn.prepareStatement(query);
-  		   boolean b = preparedStmt.execute();
-  		   System.out.println(b);
-  		 //  stmt.close();
-  		 //  conn.close();
+  		   preparedStmt.execute();
   		  }catch(ClassNotFoundException | SQLException e) {
   			  System.out.println("nop" + e);
   			  
@@ -87,8 +80,6 @@ public class PeliculaDao extends AbstractSession{
   			 list.add(setDatosQuery(rs));
   			 rs.next();
   		   }
-  		 //  stmt.close();
-  		 //  conn.close();
   		  }catch(ClassNotFoundException | SQLException e) {
   			  System.out.println("nop" + e);
   		  }
@@ -108,15 +99,13 @@ public class PeliculaDao extends AbstractSession{
   		  
   		   List<String> l = setDatosQuery(rs);
   	
-  		//   stmt.close();
-  		//   conn.close();
   		   return l;
   		  }catch(ClassNotFoundException | SQLException e) {
   			  System.out.println("nop" + e);
   		  }
 		return null;
 	}
-	/*public List<String> setDatosQuery(ResultSet rs)
+	public List<String> setDatosQuery(ResultSet rs)
 	{
 		List<String> lPeli = new ArrayList<String>();
 		try {
@@ -134,11 +123,10 @@ public class PeliculaDao extends AbstractSession{
 			lPeli.add(rs.getTimestamp("estreno").toGMTString());
 			lPeli.add(rs.getString("director"));
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return lPeli;
-	}*/
+	}
 	
 	public Pelicula findByName(String pelicula_nombre) {
 		return null;	}

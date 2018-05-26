@@ -36,7 +36,7 @@ public class ControllerPelicula implements ControllerInter {
 		Timestamp timestamp = null;
 		try {
 		    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
-		    Date parsedDate = (Date) dateFormat.parse(fecha);
+		    java.util.Date parsedDate = dateFormat.parse(fecha);
 		    timestamp = new java.sql.Timestamp(parsedDate.getTime());
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -58,7 +58,7 @@ public class ControllerPelicula implements ControllerInter {
 		return p.mostrarPelicula(id);
 	}
 
-	/*@Override
+	@Override
 	public void modify(List<String> lista) {
 		
 		Iterator<String> it = lista.iterator();
@@ -69,7 +69,7 @@ public class ControllerPelicula implements ControllerInter {
 				Integer.parseInt(it.next()),it.next(),it.next(),it.next(),Integer.parseInt(it.next()),
 				stringToEnum(it.next()),it.next(),stringToTimestamp(it.next()),it.next());
 		
-	}*/
+	}
 
 	@Override
 	public Categoria stringToEnum(String stringEnum) {
@@ -94,19 +94,4 @@ public class ControllerPelicula implements ControllerInter {
 		Pelicula p = new Pelicula();
 		return p.listadoPublicoPeliculas();
 	}
-
-
-	@Override
-	public void insert(List<String> lista) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void modify(List<String> lista) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }
